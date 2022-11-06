@@ -19,8 +19,10 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
   res.json({ message: "Bem-vindo ao aplicativo filmes." });
 });
+
 // require("./app/routers/filmes.routers")(app);
 // require("./app/routers/auth.router")(app);
+require("./app/routers/dog.routers")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
