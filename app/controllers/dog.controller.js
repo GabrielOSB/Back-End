@@ -10,7 +10,7 @@ exports.create = (req, res) => {
     });
   }
   console.log(req.body.nome);
-  // Create a Filme
+  // Create a Dog
   const dog = new Dog({
     nome: req.body.nome,
     ingrediente: req.body.ingrediente,
@@ -19,11 +19,11 @@ exports.create = (req, res) => {
 
   console.log(dog);
 
-  // Save Filme in the database
+  // Save Dog in the database
   Dog.create(dog, (err, data) => {
     if (err)
       res.status(500).send({
-        message: err.message || "Some error occurred while creating the Filme.",
+        message: err.message || "Some error occurred while creating the Dog.",
       });
     else res.send(data);
   });
@@ -35,7 +35,7 @@ exports.findAll = (req, res) => {
   Dog.getAll((err, data) => {
     if (err)
       res.status(500).send({
-        message: err.message || "Some error occurred while retrieving filme.",
+        message: err.message || "Some error occurred while retrieving Dog.",
       });
     else res.send(data);
   });
@@ -54,11 +54,11 @@ exports.update = (req, res) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({
-          message: `Not found Filme with id ${req.params.id}.`,
+          message: `Not found Dog with id ${req.params.id}.`,
         });
       } else {
         res.status(500).send({
-          message: "Error updating Filme with id " + req.params.id,
+          message: "Error updating Dog with id " + req.params.id,
         });
       }
     } else res.send(data);
@@ -71,13 +71,13 @@ exports.delete = (req, res) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({
-          message: `Not found Filme with id ${req.params.id}.`,
+          message: `Not found Dog with id ${req.params.id}.`,
         });
       } else {
         res.status(500).send({
-          message: "Could not delete Filme with id " + req.params.id,
+          message: "Could not delete Dog with id " + req.params.id,
         });
       }
-    } else res.send({ message: `Filme was deleted successfully!` });
+    } else res.send({ message: `Dog was deleted successfully!` });
   });
 };

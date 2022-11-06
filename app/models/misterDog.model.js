@@ -17,7 +17,7 @@ dog.create = (dog, result) => {
       result(err, null);
       return;
     }
-    console.log("created Filme: ", { id: res.insertId, ...dog });
+    console.log("created Dog: ", { id: res.insertId, ...dog });
     result(null, { id: res.insertId, ...dog });
   });
 };
@@ -35,11 +35,10 @@ dog.updateById = (id, dog, result) => {
         return;
       }
       if (res.affectedRows == 0) {
-        // not found Filme with the id
         result({ kind: "not_found" }, null);
         return;
       }
-      console.log("updated Filme: ", { id: id, ...dog });
+      console.log("updated: ", { id: id, ...dog });
       result(null, { id: id, ...dog });
     }
   );
@@ -53,7 +52,7 @@ dog.getAll = (result) => {
       result(null, err);
       return;
     }
-    console.log("Filme: ", res);
+    console.log("Dog: ", res);
     result(null, res);
   });
 };
@@ -67,11 +66,11 @@ dog.remove = (id, result) => {
       return;
     }
     if (res.affectedRows == 0) {
-      // not found Filme with the id
+
       result({ kind: "not_found" }, null);
       return;
     }
-    console.log("deleted Filme with id: ", id);
+    console.log("deleted Dog with id: ", id);
     result(null, res);
   });
 };

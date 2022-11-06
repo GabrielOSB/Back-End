@@ -17,10 +17,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Bem-vindo ao aplicativo filmes." });
+  res.json({ message: "API MisterDog." });
 });
 
-// require("./app/routers/filmes.routers")(app);
 // require("./app/routers/auth.router")(app);
 require("./app/routers/dog.routers")(app);
 

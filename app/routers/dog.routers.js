@@ -2,7 +2,7 @@ module.exports = (app) => {
   const dog = require("../controllers/dog.controller");
   var router = require("express").Router();
 
-  // Retrieve all filme
+  // Retrieve all Dogs
   router.get("/", dog.findAll);
   // Create
   router.post("/", dog.create);
