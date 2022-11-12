@@ -3,14 +3,10 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 
-var corsOptions = {
-  origin: "http://localhost:3306"
-};
-
+//allow all cors
+app.use(cors());
 // parse requests of logger
 app.use(logger('dev'))
-// configuration cors
-app.use(cors(corsOptions));
 // parse requests of content-type - application/json
 app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
